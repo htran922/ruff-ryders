@@ -1,0 +1,2 @@
+Cappy; url; 10; true; One eye cat from the woods of Kentucky.; true; 1
+Barlow; url; 5; true; Just a kitty from Tennessee; true; 1 
