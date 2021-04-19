@@ -8,7 +8,7 @@ CREATE TABLE adoptable_pets (
   vaccination_status BOOLEAN NOT NULL,
   adoption_story TEXT NOT NULL
   available_for_adoption BOOLEAN NOT NULL,
-  pet_type_id REFERENCES pet_types(id),
+  pet_type_id REFERENCES pet_types(type),
 );
 
 ALTER TABLE adoptable_pets

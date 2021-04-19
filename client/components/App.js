@@ -11,7 +11,7 @@ const App = props => {
     $(document).foundation()
   }, [])
 
-  return <div className="callout primary">Replace this div with your Router.</div>
+  return <div className="callout primary">Replace this div wit</div>
 }
 
 export default hot(App)
