@@ -4,6 +4,8 @@ import "foundation-sites"
 import $ from "jquery"
 import "../assets/scss/main.scss"
 
+import PetTypesList from "./PetTypesList.js"
+
 import { Route, Switch, BrowserRouter } from "react-router-dom"
 
 const App = props => {
@@ -11,7 +13,13 @@ const App = props => {
     $(document).foundation()
   }, [])
 
-  return <div className="callout primary">Replace this div with your Router.</div>
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/pets" component={PetTypesList}></Route>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default hot(App)
