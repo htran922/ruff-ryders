@@ -21,7 +21,14 @@ const AdoptablePetType = props => {
   }, [])
 
   const adoptablePetTypeList = adoptablePetType.map(pet => {
-    return <p key={pet.id}>{pet.name} </p>
+    return (
+      <div key={pet.id}> 
+        <img src={pet.imgUrl}/>
+        <h2>{pet.name}</h2>
+        <p>Age: {pet.age}</p>
+        <p>Vaccination Status: {pet.vaccinationStatus ? "Yes" : "No"}</p>
+      </div>
+    )
   })
   return <>{adoptablePetTypeList}</>
 }
