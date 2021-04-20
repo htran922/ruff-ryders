@@ -24,9 +24,9 @@ class Seeder {
         if (last) {
      
           console.log("Seeding Complete")
-          pool.end()
+         pool.end()
         }
-        done()
+       // done()
       } catch (error) {
         console.log(`Error: ${error}`)
         done()
@@ -34,6 +34,8 @@ class Seeder {
     })
   }
 
+
+  
 }
 
 

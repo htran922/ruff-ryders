@@ -1,14 +1,15 @@
+
 DROP TABLE IF EXISTS adoptable_pets CASCADE;
 
 CREATE TABLE adoptable_pets (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   img_url VARCHAR(255) NOT NULL,
-  age INTEGER , 
+  age INTEGER, 
   vaccination_status BOOLEAN NOT NULL,
-  adoption_story TEXT NOT NULL
+  adoption_story TEXT NOT NULL,
   available_for_adoption BOOLEAN NOT NULL,
-  pet_type_id REFERENCES pet_types(type),
+  pet_type_id INTEGER REFERENCES pet_types(id)
 );
 
 ALTER TABLE adoptable_pets

@@ -5,7 +5,8 @@ const pool = new pg.Pool({
 })
 
 class AdoptablePet{
-  constructor({name, img_url, imgUrl, age, vaccination_status, vaccinationStatus, adoption_story, adoptionStory, available_for_adoption,availableForAdoption, pet_type_id, petTypeId}){
+  constructor({id, name, img_url, imgUrl, age, vaccination_status, vaccinationStatus, adoption_story, adoptionStory, available_for_adoption,availableForAdoption, pet_type_id, petTypeId}){
+    this.id = id
     this.name = name
     this.imgUrl = img_url || imgUrl
     this.age = age
@@ -17,7 +18,8 @@ class AdoptablePet{
 
   static async findByType(petType){
     try{
-      const result = await pool.query('SELECT * FROM adoptable_pets WHERE pet_type_id = $1; ', [petType])
+      const result = await pool.query('SELECT * FROM adoptable_pets WHERE pet_type_id IN (SELECT id FROM pet_types WHERE type = $1 )',[petType]);
+    
       const adoptablePetsData = result.rows;
       const adoptablePets= adoptablePetsData.map(adoptablePet => new this(adoptablePet))
       return adoptablePets
@@ -28,6 +30,8 @@ class AdoptablePet{
       throw(error)
     }
   }
+
+
 
   // async petType(){
   //   const petTypeFile = await import ("./PetType.js")

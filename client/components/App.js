@@ -6,12 +6,21 @@ import "../assets/scss/main.scss"
 
 import { Route, Switch, BrowserRouter } from "react-router-dom"
 
+import AdoptablePetType from "./AdoptablePetType.js"
+
 const App = props => {
   useEffect(() => {
     $(document).foundation()
   }, [])
 
-  return <div className="callout primary">Replace this div wit</div>
+  return (
+    <BrowserRouter>
+      <Switch>
+        {/* <Route exact path="/pets" component={PetTypesList}></Route> */}
+        <Route exact path="/pets/:type" component={AdoptablePetType}></Route>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default hot(App)
