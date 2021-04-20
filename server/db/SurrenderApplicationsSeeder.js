@@ -10,11 +10,11 @@ const pool = new pg.Pool({
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const petSurrenderApplicationsPath = path.join(__dirname, "../../petSurrenderApplications.txt")
+const surrenderApplicationsPath = path.join(__dirname, "../../surrenderApplications.txt")
 
-class PetSurrenderApplicationsSeeder {
+class SurrenderApplicationsSeeder {
   static async seed() {
-    LineReader.eachLine(petSurrenderApplicationsPath, async (line, last, done) => {
+    LineReader.eachLine(surrenderApplicationsPath, async (line, last, done) => {
       const [name, phone_number, email, adoptable_pet_id, status] = line.split(";")
       const queryString =
         "INSERT INTO adoption_applications (name, phone_number, email, adoptable_pet_id, status) VALUES ($1, $2, $3, $4, $5);"
@@ -40,4 +40,4 @@ class PetSurrenderApplicationsSeeder {
   }
 }
 
-export default PetSurrenderApplicationsSeeder
+export default SurrenderApplicationsSeeder
