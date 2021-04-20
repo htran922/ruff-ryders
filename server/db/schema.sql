@@ -7,4 +7,11 @@ CREATE TABLE pet_types (
   description TEXT
 );
 
+DROP TABLE IF EXISTS adoption_applications (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  phone_number INT(11) NOT NULL,
+  
+)
+
 
