@@ -1,6 +1,5 @@
 import pg from "pg"
 import path from "path"
-// import LineReader from "line-reader"
 import { fileURLToPath } from "url"
 
 const pool = new pg.Pool({
