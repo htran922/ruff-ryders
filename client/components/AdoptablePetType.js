@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import AdoptablePetTypeTile from "./AdoptablePetTypeTile"
 
 const AdoptablePetType = props => {
   const [adoptablePetType, setAdoptablePetType] = useState([])
@@ -23,12 +24,13 @@ const AdoptablePetType = props => {
 
   const adoptablePetTypeList = adoptablePetType.map(pet => {
     return (
-      <div key={pet.id}> 
-        <img src={pet.imgUrl}/>
-        <h2>{pet.name}</h2>
-        <p>Age: {pet.age}</p>
-        <p>Vaccination Status: {pet.vaccinationStatus ? "Yes" : "No"}</p>
-      </div>
+      <AdoptablePetTypeTile 
+        key={pet.id}
+        imgUrl={pet.imgUrl}
+        name={pet.name}
+        age={pet.age}
+        vaccinationStatus={pet.vaccinationStatus}
+      />
     )
   })
   return <>{adoptablePetTypeList}</>
