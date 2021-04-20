@@ -1,0 +1,4 @@
+Cat; https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png; Meows a lot
+Dog; https://clipartix.com/wp-content/uploads/2016/12/Dogs-dog-and-cat-silhouette-clip-art-free.jpg; Barks a lot
+Fox; https://clipartix.com/wp-content/uploads/2016/03/Red-fox-clip-art-free-clipart-images.jpg; Says, hehehe
+
