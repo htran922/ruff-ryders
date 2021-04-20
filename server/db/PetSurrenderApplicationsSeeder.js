@@ -15,30 +15,16 @@ const petSurrenderApplicationsPath = path.join(__dirname, "../../petSurrenderApp
 class PetSurrenderApplicationsSeeder {
   static async seed() {
     LineReader.eachLine(petSurrenderApplicationsPath, async (line, last, done) => {
-      const [
-        name,
-        phone_number,
-        email,
-        pet_name,
-        pet_age,
-        pet_type_id,
-        pet_image_url,
-        vaccination_status,
-        application_status
-      ] = line.split(";")
+      const [name, phone_number, email, adoptable_pet_id, status] = line.split(";")
       const queryString =
-        "INSERT INTO adoption_applications (name, phone_number, email, pet_name, pet_age, pet_type_id, pet_image_url, vaccination_status, application_status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);"
+        "INSERT INTO adoption_applications (name, phone_number, email, adoptable_pet_id, status) VALUES ($1, $2, $3, $4, $5);"
       try {
         const result = await pool.query(queryString, [
           name,
           phone_number,
           email,
-          pet_name,
-          pet_age,
-          pet_type_id,
-          pet_image_url,
-          vaccination_status,
-          application_status
+          adoptable_pet_id,
+          status
         ])
         if (last) {
           // Drain pool because we are done connecting
