@@ -5,6 +5,7 @@ import adoptablePetsRouter from "./api/v1/adoptablePetsRouter.js"
 const rootRouter = new express.Router()
 
 rootRouter.use("/api/v1/adoptable-pets", adoptablePetsRouter)
+rootRouter.use("/api/v1/pet-types", petTypeRouter)
 
 rootRouter.use("/", clientRouter)
 

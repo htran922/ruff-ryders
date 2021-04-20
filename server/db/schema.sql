@@ -19,3 +19,13 @@ SET DEFAULT FALSE;
 ALTER TABLE adoptable_pets
 ALTER COLUMN available_for_adoption
 SET DEFAULT TRUE;
+DROP TABLE IF EXISTS pet_types;
+
+CREATE TABLE pet_types (
+  id SERIAL PRIMARY KEY,
+  type VARCHAR(255) NOT NULL,
+  img_url VARCHAR(255) NOT NULL,
+  description TEXT
+);
+
+

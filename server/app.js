@@ -4,8 +4,8 @@ import logger from "morgan"
 import bodyParser from "body-parser"
 import hbsMiddleware from "express-handlebars"
 import _ from "lodash"
-import pg from 'pg'
-import { fileURLToPath } from 'url'
+import pg from "pg"
+import { fileURLToPath } from "url"
 import rootRouter from "./routes/rootRouter.js"
 
 const app = express()
@@ -33,7 +33,6 @@ app.use(bodyParser.json())
 
 // Express routes
 app.use(rootRouter)
-
 
 app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening on port 3000...")
