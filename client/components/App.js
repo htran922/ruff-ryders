@@ -5,6 +5,7 @@ import $ from "jquery"
 import "../assets/scss/main.scss"
 
 import PetTypesList from "./PetTypesList.js"
+import AdoptionForm from "./AdoptionForm"
 
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom"
 
@@ -20,6 +21,7 @@ const App = props => {
           <Redirect to="/pets" />
         </Route>
         <Route exact path="/pets" component={PetTypesList} />
+        <Route exact path ="/adoptionForm" component = {AdoptionForm} />
       </Switch>
     </BrowserRouter>
   )

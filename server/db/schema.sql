@@ -7,14 +7,16 @@ CREATE TABLE pet_types (
   description TEXT
 );
 
-DROP TABLE IF EXISTS adoption_applications (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  phone_number INT(10) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  home_status VARCHAR(255) NOT NULL,
-  application_status VARCHAR(255),
-  adoptable_pet_id INT REFERENCES adoptable_pet(id)
-);
+-- DROP TABLE IF EXISTS adoption_applications;
+
+-- CREATE TABLE adoption_applications (
+--   id SERIAL PRIMARY KEY,
+--   name VARCHAR(255) NOT NULL,
+--   phone_number INT NOT NULL,
+--   email VARCHAR(255) NOT NULL,
+--   home_status VARCHAR(255) NOT NULL,
+--   application_status VARCHAR(255),
+--   adoptable_pet_id INT REFERENCES adoptable_pet(id)
+-- );
 
 
