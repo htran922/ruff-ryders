@@ -5,8 +5,10 @@ import AdoptablePet from "../../../models/AdoptablePet.js"
 const adoptablePetsRouter = new express.Router()
 
 adoptablePetsRouter.get("/:type", async (req, res) => {
+  debugger
   try {
     const adoptablePets = await AdoptablePet.findByType(req.params.type)
+    debugger
     res.json({ adoptablePets })
   } catch (error) {
     console.log("Router Error")

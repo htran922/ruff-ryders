@@ -1,5 +1,6 @@
 import pg from "pg"
 import path from "path"
+import LineReader from "line-reader"
 import { fileURLToPath } from "url"
 
 const pool = new pg.Pool({
@@ -54,7 +55,7 @@ class Seeder {
   static async seedPetTypes() {
     try {
       const results = await pool.query(typeQuery)
-      pool.end()
+      // pool.end()
     } catch (error) {
       console.error(error)
       pool.end()

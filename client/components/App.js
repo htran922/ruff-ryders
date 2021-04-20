@@ -18,11 +18,11 @@ const App = props => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/pets/:type" component={AdoptablePetType}></Route>
         <Route exact path="/">
           <Redirect to="/pets" />
         </Route>
         <Route exact path="/pets" component={PetTypesList} />
+        <Route exact path="/pets/:type" component={AdoptablePetType}></Route>
       </Switch>
     </BrowserRouter>
   )

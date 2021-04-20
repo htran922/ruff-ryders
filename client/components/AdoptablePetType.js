@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 
 const AdoptablePetType = props => {
   const [adoptablePetType, setAdoptablePetType] = useState([])
+  
   const getAdoptablePetType = async () => {
     try {
       const response = await fetch(`/api/v1/adoptable-pets/${props.match.params.type}`)
