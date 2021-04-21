@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS pet_types;
+DROP TABLE IF EXISTS pet_types CASCADE;
 DROP TABLE IF EXISTS adoptable_pets CASCADE;
 
 CREATE TABLE pet_types (
