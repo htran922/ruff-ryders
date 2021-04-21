@@ -2,17 +2,17 @@
   "petTypes": [
     {
       "type": "cat",
-      "img_url": "https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png",
+      "img_url": "https://source.unsplash.com/9UUoGaaHtNE/640x426",
       "description": "Meows a lot"
     },
     {
       "type": "dog",
-      "img_url": "https://clipartix.com/wp-content/uploads/2016/12/Dogs-dog-and-cat-silhouette-clip-art-free.jpg",
+      "img_url": "https://source.unsplash.com/U3aF7hgUSrk/640x426",
       "description": "Barks a lot"
     },
     {
       "type": "fox",
-      "img_url": "https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png",
+      "img_url": "https://source.unsplash.com/gjpThvXUKIo/640x426",
       "description": "Says, hehehe"
     }
   ]

@@ -38,7 +38,7 @@ const PetTypesList = props => {
     <div>
       <h1>Ruff Ryders</h1>
       <h2>Helping people adopt pets.</h2>
-      <ul>{allPetTypes}</ul>
+      {allPetTypes}
     </div>
   )
 }
