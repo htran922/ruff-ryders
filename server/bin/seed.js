@@ -5,5 +5,5 @@ import SurrenderApplicationsSeeder from "../db/SurrenderApplicationsSeeder.js"
 
 await PetTypesSeeder.seed()
 await AdoptablePetsSeeder.seed()
-await AdoptionApplicationsSeeder.seed()
 await SurrenderApplicationsSeeder.seed()
+await AdoptionApplicationsSeeder.seed()

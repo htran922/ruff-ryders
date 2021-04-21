@@ -1,4 +1,4 @@
-Carl Stiddleberg; 781-545-7557; cstiddleberg@gmail.com; rent;pending; 2
-Bobby Hale; 978-454-1234; bobbythepony1@gmail.com; own; pending;3
-Tianna Smith; 617-751-4531; tsmith455@yahoo.com; own; pending;1
-Benecio Del Toro; 212-111-3243; bdt@gmail.com; own; pending;1
+2; Carl Stiddleberg; 781-545-7557; cstiddleberg@gmail.com; rent; pending
+3; Bobby Hale; 978-454-1234; bobbythepony1@gmail.com; own; pending
+1; Tianna Smith; 617-751-4531; tsmith455@yahoo.com; own; pending
+1; Benecio Del Toro; 212-111-3243; bdt@gmail.com; own; pending

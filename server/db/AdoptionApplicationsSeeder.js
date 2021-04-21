@@ -16,23 +16,23 @@ class AdoptionApplicationsSeeder {
   static async seed() {
     LineReader.eachLine(adoptionApplicationsPath, async (line, last, done) => {
       const [
+        adoptable_pet_id,
         name,
         phone_number,
         email,
         home_status,
-        application_status,
-        adoptable_pet_id
+        application_status
       ] = line.split(";")
       const queryString =
-        "INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, adoptable_pet_id) VALUES ($1, $2, $3, $4, $5, $6);"
+        "INSERT INTO adoption_applications (adoptable_pet_id, name, phone_number, email, home_status, application_status) VALUES ($1, $2, $3, $4, $5, $6);"
       try {
         const result = await pool.query(queryString, [
+          adoptable_pet_id,
           name,
           phone_number,
           email,
           home_status,
-          application_status,
-          adoptable_pet_id
+          application_status
         ])
         if (last) {
           // Drain pool because we are done connecting

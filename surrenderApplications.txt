@@ -1,4 +1,5 @@
-Sun Rea; 508-245-9564; srea@icloud.com; 1; pending
-Brad Pitt; 781-545-1111; bpitt@gmail.com; 2; pending
-Jamie xx; 987-451-4444; jamiexx@gmail.com;3; pending 
-Will Smith; 555-555-4444; wsmith@hotmail.com;3; pending 
+3; Sun Rea; 508-245-9564; srea@icloud.com; pending
+1; Brad Pitt; 781-545-1111; bpitt@gmail.com; pending
+4; Jamie xx; 987-451-4444; jamiexx@gmail.com; pending
+2; Will Smith; 555-555-4444; wsmith@hotmail.com; pending
+5; Ozzy Osbourne; 666-666-6666; sharon@hotmail.com; pending 

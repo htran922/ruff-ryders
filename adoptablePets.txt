@@ -1,6 +1,5 @@
-Cappy; https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png; 10; true; One eye cat from the woods of Kentucky.; true; 1
-Barlow; https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png; 5; true; Just a kitty from Tennessee; true; 1 
-Scully; https://clipartix.com/wp-content/uploads/2016/12/Dogs-dog-and-cat-silhouette-clip-art-free.jpg; 1; true; Mr Basil Waygu Toots-a-lot!; true; 2 
-Fennic; https://clipartix.com/wp-content/uploads/2016/03/Red-fox-clip-art-free-clipart-images.jpg; 4; true; Swift swift swift; true; 3
-Corsac; https://clipartix.com/wp-content/uploads/2016/03/Red-fox-clip-art-free-clipart-images.jpg; 2; true; quick like a fox; true; 3
-
+Cappy; https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png; 10; FALSE; One eye cat from the woods of Kentucky.; true; 1
+Barlow; https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png; 5; FALSE; Just a kitty from Tennessee; true; 1 
+Scully; https://clipartix.com/wp-content/uploads/2016/12/Dogs-dog-and-cat-silhouette-clip-art-free.jpg; 1; FALSE; Mr Basil Waygu Toots-a-lot!; true; 2 
+Fennic; https://clipartix.com/wp-content/uploads/2016/03/Red-fox-clip-art-free-clipart-images.jpg; 4; FALSE; Swift swift swift; true; 3
+Corsac; https://clipartix.com/wp-content/uploads/2016/03/Red-fox-clip-art-free-clipart-images.jpg; 2; FALSE; quick like a fox; true; 3

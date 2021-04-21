@@ -3,7 +3,7 @@ import clientRouter from "./clientRouter.js"
 
 const rootRouter = new express.Router()
 
-rootRouter.use()
+//rootRouter.use()
 
 rootRouter.use("/", clientRouter)
 

@@ -15,15 +15,15 @@ const surrenderApplicationsPath = path.join(__dirname, "../../surrenderApplicati
 class SurrenderApplicationsSeeder {
   static async seed() {
     LineReader.eachLine(surrenderApplicationsPath, async (line, last, done) => {
-      const [name, phone_number, email, adoptable_pet_id, status] = line.split(";")
+      const [adoptable_pet_id, name, phone_number, email, status] = line.split(";")
       const queryString =
-        "INSERT INTO adoption_applications (name, phone_number, email, adoptable_pet_id, status) VALUES ($1, $2, $3, $4, $5);"
+        "INSERT INTO surrender_applications (adoptable_pet_id, name, phone_number, email, status)  VALUES ($1, $2, $3, $4, $5);"
       try {
         const result = await pool.query(queryString, [
+          adoptable_pet_id,
           name,
           phone_number,
           email,
-          adoptable_pet_id,
           status
         ])
         if (last) {
