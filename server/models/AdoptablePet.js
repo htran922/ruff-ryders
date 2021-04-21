@@ -49,12 +49,27 @@ class AdoptablePet {
 
   static async getAvaliblePets(petType) {
     try {
-      const queryString = "SELECT * FROM adoptable_pets JOIN surrender_application ON surrender_application.adoptable_pets_id = adoptable_pets.id WHERE surrender_application.status = 'Approved' AND adoptable_pets.type = $1;" 
+      import SurrenderApplication from './SurrenderApplication.js'
 
-      const results = pool.query(queryString, [petType])
-      const avaliblePetsData = results.rows
-      const avaliblePets = avaliblePetsData.map(avaliblePet => new this(adoptablePet))
-      return avaliblePets
+      const petsByType = await this.findById(petType)
+
+      const avaliblePets = petsByType.map(pet => {
+        if(pet.availableForAdoption){
+          return pet
+        }
+      })
+
+      const queryString = "SELECT * FROM surrender_application WHERE status = 'approved';" 
+
+      const results = await pool.query(queryString)
+      const applicationsData = results.rows
+      const appliactions = applicationsData.map( application => await new SurrenderApplication(application))
+      
+      const finalResult = (avaliblePetsArr, appliactionsArr) =>{
+        
+      }
+
+
     } catch (error) {
       console.error("MODEL ERROR")
       console.error(error)

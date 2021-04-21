@@ -10,7 +10,7 @@ const AdoptablePetTypeTile = ({ imgUrl, name, age, vaccinationStatus }) => {
       <img src={imgUrl} />
       <h2>{name}</h2>
       <p>Age: {age}</p>
-      <p>{isVaccinated}</p>
+      <p>Vaccinated: {isVaccinated}</p>
     </div>
   )
 }

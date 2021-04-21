@@ -18,3 +18,5 @@ CREATE TABLE adoptable_pets (
   available_for_adoption BOOLEAN NOT NULL DEFAULT TRUE,
   pet_type_id INTEGER REFERENCES pet_types(id)
 );
+
+INSERT INTO surrender_applications (adoptable_pet_id, name, phone_number, email, status) VALUES ('3', 'Dan Brown', '123-456-7890', 'dan_brown@gmail.com', 'accepted');
