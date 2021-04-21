@@ -29,19 +29,44 @@ class AdoptionApplication {
     this.adoptablePetId = adoptablePetId || adoptable_pet_id
   }
 
-  async save(){
+  isValid() {
+    this.errors = {}
+    const requiredFields = ["name", "phoneNumber", "email", "homeStatus"]
+    let isValid = true
+
+    for (const field of requiredFields) {
+      this.errors[field] = []
+      if (!this[field]) {
+        isValid = false
+        this.errors[field].push("cannot be blank")
+      }
+    }
+    return isValid
+  }
+
+  async save() {
     try {
-      const query = 'INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, adoptable_pet_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;'
-
-      const result = await pool.query(query, [this.name, this.phoneNumber, this.email, this.homeStatus, this.applicationStatus, this.adoptablePetId])
-
-      const newAppId = result.rows[0].id
-      this.id = newAppId
-      
-      return true
+      if (this.isValid()) {
+        delete this.errors
+        const query =
+          "INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, adoptable_pet_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;"
+        const result = await pool.query(query, [
+          this.name,
+          this.phoneNumber,
+          this.email,
+          this.homeStatus,
+          this.applicationStatus,
+          this.adoptablePetId
+        ])
+        const newAppId = result.rows[0].id
+        this.id = newAppId
+        return true
+      } else {
+        return false
+      }
     } catch (error) {
       console.error(error)
-      throw(error)
+      throw error
     }
   }
 }

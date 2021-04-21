@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react"
+import AdoptionForm from "./AdoptionForm"
 
 const AdoptablePetTypeShow = props => {
   const [adoptablePet, setAdoptablePet] = useState({})
+  const [showAdoptionForm, setShowAdoptionForm] = useState(false)
+  const [successMessage, setSuccessMessage] = useState(null)
+
+  const { type, id } = props.match.params
   const getAdoptablePet = async () => {
-    const { type, id } = props.match.params
     try {
       const response = await fetch(`/api/v1/adoptable-pets/${type}/${id}`)
       if (!response.ok) {
@@ -22,13 +26,34 @@ const AdoptablePetTypeShow = props => {
     getAdoptablePet()
   }, [])
 
+  const handleAdoptMeClick = () => {
+    setShowAdoptionForm(true)
+  }
+
+  const handleFormSuccess = () => {
+    setSuccessMessage("Application received! Your request is in process")
+  }
+
   return (
     <div>
+      <div>{successMessage}</div>
       <img src={adoptablePet.imgUrl} />
       <h1>{adoptablePet.name}</h1>
       <p>Age: {adoptablePet.age}</p>
       <p>Vaccinated: {adoptablePet.vaccinationStatus ? "Yes" : "No"}</p>
       <p>{adoptablePet.adoptionStory}</p>
+
+      <button type="button" onClick={handleAdoptMeClick}>
+        Adopt Me!
+      </button>
+      {showAdoptionForm ? (
+        <AdoptionForm
+          id={props.match.params.id}
+          type={props.match.params.type}
+          adoptablePetId={adoptablePet.id}
+          onFormSubmit={handleFormSuccess}
+        />
+      ) : null}
     </div>
   )
 }
