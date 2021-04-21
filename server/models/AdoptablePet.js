@@ -49,8 +49,6 @@ class AdoptablePet {
 
   static async getAvaliblePets(petType) {
     try {
-      import SurrenderApplication from './SurrenderApplication.js'
-
       const petsByType = await this.findById(petType)
 
       const avaliblePets = petsByType.map(pet => {
@@ -59,16 +57,38 @@ class AdoptablePet {
         }
       })
 
-      const queryString = "SELECT * FROM surrender_application WHERE status = 'approved';" 
-
-      const results = await pool.query(queryString)
-      const applicationsData = results.rows
-      const appliactions = applicationsData.map( application => await new SurrenderApplication(application))
-      
-      const finalResult = (avaliblePetsArr, appliactionsArr) =>{
-        
+      const finalResults =[]
+      for (let index = 0; index < avaliblePets.length; index++) {
+        const pet = avaliblePets[index];
+        if(await pet.getSurrendAppliaction()){
+          finalResults.push(pet) 
+        }
       }
 
+      return finalResults
+
+    } catch (error) {
+      console.error("MODEL ERROR")
+      console.error(error)
+      throw error
+    }
+  }
+
+  async getSurrendAppliaction(){
+    try {
+      const surrenderApp = await import('./SurrenderApplication.js') 
+      const SurrenderApplication = surrenderApp.defult
+
+      const relatedPetDataQuery = "Select * FROM surrender_applications WHERE adoptable_pet_id = $1;"
+
+      const resultsData = await pool.query(relatedPetDataQuery, [this.id])
+      const result = resultsData.map(result => new SurrenderApplication(result))
+
+      if(resultsData.status === 'approved'){
+        return true
+      } else {
+        return false
+      }
 
     } catch (error) {
       console.error("MODEL ERROR")

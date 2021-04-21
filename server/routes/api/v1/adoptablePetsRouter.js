@@ -6,7 +6,7 @@ const adoptablePetsRouter = new express.Router()
 
 adoptablePetsRouter.get("/:type", async (req, res) => {
   try {
-    const adoptablePets = await AdoptablePet.findByType(req.params.type)
+    const adoptablePets = await AdoptablePet.getAvaliblePets(req.params.type)
     res.status(200).json({ adoptablePets })
   } catch (error) {
     console.log("Router Error")
