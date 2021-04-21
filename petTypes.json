@@ -1,0 +1,19 @@
+{
+  "petTypes": [
+    {
+      "type": "cat",
+      "img_url": "https://source.unsplash.com/9UUoGaaHtNE/640x426",
+      "description": "Meows a lot"
+    },
+    {
+      "type": "dog",
+      "img_url": "https://source.unsplash.com/U3aF7hgUSrk/640x426",
+      "description": "Barks a lot"
+    },
+    {
+      "type": "fox",
+      "img_url": "https://source.unsplash.com/gjpThvXUKIo/640x426",
+      "description": "Says, hehehe"
+    }
+  ]
+}

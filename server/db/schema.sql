@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS pet_types;
+DROP TABLE IF EXISTS pet_types CASCADE;
+DROP TABLE IF EXISTS adoptable_pets CASCADE;
 
 CREATE TABLE pet_types (
   id SERIAL PRIMARY KEY,
@@ -7,16 +8,13 @@ CREATE TABLE pet_types (
   description TEXT
 );
 
--- DROP TABLE IF EXISTS adoption_applications;
-
--- CREATE TABLE adoption_applications (
---   id SERIAL PRIMARY KEY,
---   name VARCHAR(255) NOT NULL,
---   phone_number INT NOT NULL,
---   email VARCHAR(255) NOT NULL,
---   home_status VARCHAR(255) NOT NULL,
---   application_status VARCHAR(255),
---   adoptable_pet_id INT REFERENCES adoptable_pet(id)
--- );
-
-
+CREATE TABLE adoptable_pets (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  img_url VARCHAR(255) NOT NULL,
+  age INTEGER, 
+  vaccination_status BOOLEAN NOT NULL DEFAULT FALSE,
+  adoption_story TEXT NOT NULL,
+  available_for_adoption BOOLEAN NOT NULL DEFAULT TRUE,
+  pet_type_id INTEGER REFERENCES pet_types(id)
+);

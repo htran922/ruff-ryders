@@ -15,7 +15,6 @@ class PetType {
   }
 
   static async findAll() {
-    debugger
     try {
       const results = await pool.query("SELECT * FROM pet_types;")
       const petTypesData = results.rows
