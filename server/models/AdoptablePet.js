@@ -33,7 +33,7 @@ class AdoptablePet {
   static async findByType(petType) {
     try {
       const result = await pool.query(
-        "SELECT * FROM adoptable_pets WHERE pet_type_id IN (SELECT id FROM pet_types WHERE type = $1 )",
+        "SELECT * FROM adoptable_pets WHERE pet_type_id IN (SELECT id FROM pet_types WHERE type = $1);",
         [petType]
       )
 
@@ -64,9 +64,20 @@ class AdoptablePet {
           finalResults.push(pet) 
         }
       }
-
       return finalResults
+    }catch (error) {
+      console.error("MODEL ERROR")
+      console.error(error)
+      throw error
+    }
+  }
 
+  static async findById(id) {
+    try {
+      const result = await pool.query("SELECT * FROM adoptable_pets WHERE id = $1;", [id])
+      const adoptablePetData = result.rows[0]
+      const adoptablePet = new this(adoptablePetData)
+      return adoptablePet
     } catch (error) {
       console.error("MODEL ERROR")
       console.error(error)
