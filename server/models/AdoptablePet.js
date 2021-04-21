@@ -47,6 +47,21 @@ class AdoptablePet {
     }
   }
 
+  static async getAvaliblePets(petType) {
+    try {
+      const queryString = "SELECT * FROM adoptable_pets JOIN surrender_application ON surrender_application.adoptable_pets_id = adoptable_pets.id WHERE surrender_application.status = 'Approved' AND adoptable_pets.type = $1;" 
+
+      const results = pool.query(queryString, [petType])
+      const avaliblePetsData = results.rows
+      const avaliblePets = avaliblePetsData.map(avaliblePet => new this(adoptablePet))
+      return avaliblePets
+    } catch (error) {
+      console.error("MODEL ERROR")
+      console.error(error)
+      throw error
+    }
+  }
+
 }
 
 export default AdoptablePet
