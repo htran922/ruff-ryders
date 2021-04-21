@@ -26,6 +26,8 @@ const AdoptablePetType = props => {
     return (
       <AdoptablePetTypeTile 
         key={pet.id}
+        id={pet.id}
+        petType={props.match.params.type}
         imgUrl={pet.imgUrl}
         name={pet.name}
         age={pet.age}

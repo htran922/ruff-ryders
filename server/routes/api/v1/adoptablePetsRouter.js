@@ -15,4 +15,15 @@ adoptablePetsRouter.get("/:type", async (req, res) => {
   }
 })
 
+adoptablePetsRouter.get("/:type/:id", async (req, res) => {
+  try {
+    const adoptablePet = await AdoptablePet.findById(req.params.id)
+    res.json({ adoptablePet })
+  } catch (error) {
+    console.log("Router Error")
+    console.error(error)
+    res.status(500).json({ errors: error })
+  }
+})
+
 export default adoptablePetsRouter
