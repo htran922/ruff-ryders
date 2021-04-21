@@ -1,0 +1,49 @@
+{
+  "adoptablePets": [
+    {
+      "name": "Cappy",
+      "img_url": "https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png",
+      "age": "10",
+      "vaccination_status": false,
+      "adoption_story": "One eye cat from the woods of Kentucky.",
+      "available_for_adoption": true,
+      "type": "cat"
+    },
+    {
+      "name": "Barlow",
+      "img_url": "https://clipartix.com/wp-content/uploads/2019/02/black-cat-clipart-2-2019-10.png",
+      "age": "5",
+      "vaccination_status": false,
+      "adoption_story": "Just a kitty from Tennessee.",
+      "available_for_adoption": true,
+      "type": "cat"
+    },
+    {
+      "name": "Scully",
+      "img_url": "https://clipartix.com/wp-content/uploads/2016/12/Dogs-dog-and-cat-silhouette-clip-art-free.jpg",
+      "age": "1",
+      "vaccination_status": false,
+      "adoption_story": "Mr Basil Waygu Toots-a-lot!",
+      "available_for_adoption": true,
+      "type": "dog"
+    },
+    {
+      "name": "Fennic",
+      "img_url": "https://clipartix.com/wp-content/uploads/2016/03/Red-fox-clip-art-free-clipart-images.jpg",
+      "age": "4",
+      "vaccination_status": false,
+      "adoption_story": "Swift swift swift.",
+      "available_for_adoption": true,
+      "type": "fox"
+    },
+    {
+      "name": "Corsac",
+      "img_url": "https://clipartix.com/wp-content/uploads/2016/03/Red-fox-clip-art-free-clipart-images.jpg",
+      "age": "2",
+      "vaccination_status": false,
+      "adoption_story": "Quick like a fox.",
+      "available_for_adoption": true,
+      "type": "fox"
+    }
+  ]
+}
