@@ -37,6 +37,7 @@ class AdoptionApplication {
 
       const newAppId = result.rows[0].id
       this.id = newAppId
+      
       return true
     } catch (error) {
       console.error(error)
