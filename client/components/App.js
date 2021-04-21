@@ -4,9 +4,10 @@ import "foundation-sites"
 import $ from "jquery"
 import "../assets/scss/main.scss"
 
-import PetTypesList from "./PetTypesList.js"
 
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom"
+import NavBar from './NavBar.js'
+
+import { Route, BrowserRouter} from "react-router-dom"
 
 const App = props => {
   useEffect(() => {
@@ -15,12 +16,7 @@ const App = props => {
 
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Redirect to="/pets" />
-        </Route>
-        <Route exact path="/pets" component={PetTypesList} />
-      </Switch>
+      <Route path='/' component={NavBar} />
     </BrowserRouter>
   )
 }
