@@ -8,7 +8,7 @@ const PetTypeTile = props => {
   return (
     <div>
       <Link to={`/pets/${props.type}`}>
-        {_.capitalize(props.type)}
+        <h2>{_.capitalize(props.type)}</h2>
         <img src={imgURL} />
       </Link>
       <p>{props.description}</p>
