@@ -72,7 +72,7 @@ class Seeder {
       console.log("Seeding complete")
       pool.end()
     } catch (error) {
-      console.log(error)
+      console.error(error)
       pool.end()
     }
   }
