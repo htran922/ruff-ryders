@@ -1,1 +1,14 @@
 /* your styles, here */
+@font-face {
+  font-family: AustieBostKitten;
+  src: url(client/public/fonts/AustieBostKittenKlub.ttf);
+}
+
+:root {
+  --title-font: AustieBostKitten;
+  --header-font: arial;
+}
+
+h1 {
+  font-family: var(--title-font);
+}
