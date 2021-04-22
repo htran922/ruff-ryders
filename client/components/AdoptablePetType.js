@@ -5,8 +5,9 @@ const AdoptablePetType = props => {
   const [adoptablePetType, setAdoptablePetType] = useState([])
 
   const getAdoptablePetType = async () => {
+    const { type } = props.match.params
     try {
-      const response = await fetch(`/api/v1/adoptable-pets/${props.match.params.type}`)
+      const response = await fetch(`/api/v1/pet-types/${type}`)
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
