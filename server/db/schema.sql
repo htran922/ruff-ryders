@@ -38,3 +38,4 @@ CREATE TABLE adoption_applications (
  home_status VARCHAR(255) NOT NULL,
  application_status VARCHAR(255) DEFAULT 'pending'
 );
+
