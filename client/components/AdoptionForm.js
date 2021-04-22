@@ -25,7 +25,7 @@ const AdoptionForm = props => {
 
   const addNewAdoptionApplication = async () => {
     try {
-      const response = await fetch("/api/v1/adoption-form", {
+      const response = await fetch("/api/v1/adoption-application", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json"
