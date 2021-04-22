@@ -3,15 +3,6 @@ import SurrenderApplication from "../../../models/SurrenderApplication.js"
 
 const surrenderRouter = new express.Router()
 
-surrenderRouter.get("/", async (req, res) => {
-  try {
-    const surrenderApplication = await SurrenderApplication.findAll()
-    res.json({ surrenderApplication })
-  } catch (error) {
-    console.log(`Error: ${error}`)
-    res.status(500).json({ error: error })
-  }
-})
 
 surrenderRouter.post('/', async (req, res) => {
   try {

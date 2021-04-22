@@ -12,11 +12,12 @@ const SurrenderForm = (props) => {
     petAge: "",
     petType: "",
     petImage: "",
-    vaccinationStatus: "pending"
+    vaccinationStatus: ""
   })
 
   const [errors, setErrors] = useState({})
   const [successMessage, setSuccessMessage] = useState(null)
+  const [shouldRedirect, setShouldRedirect] = useState(false)
 
   const addNewSurrender = async () => {
     try {
@@ -33,9 +34,10 @@ const SurrenderForm = (props) => {
         throw (error)
       } else {
         const body = await response.json()
-        console.log("Posted successfully!", body);
-
+        setShouldRedirect(true)
+       
       }
+
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
     }
@@ -51,7 +53,7 @@ const SurrenderForm = (props) => {
   const validFormSubmission = () => {
     let submitErrors = {}
 
-    const requiredFields = ['name', 'phoneNumber', 'email']
+    const requiredFields = ['name', 'phoneNumber', 'email', 'petImage','petAge','petType', 'vaccinationStatus' ]
     requiredFields.forEach(field => {
       if (newSurrenderedPet[field].trim() === '') {
         submitErrors = {
@@ -71,6 +73,16 @@ const SurrenderForm = (props) => {
     if (validFormSubmission()) {
       addNewSurrender()
       handleFormSuccess()
+    setNewSurrenderedPet({
+      name: "",
+      phoneNumber: "",
+      email: "",
+      petName: "",
+      petAge: "",
+      petType: "",
+      petImage: "",
+      vaccinationStatus: ""
+    })
     }
   }
 
@@ -127,7 +139,7 @@ const SurrenderForm = (props) => {
           Email:
         <input
             id="email"
-            type="text"
+            type="email"
             name="email"
             onChange={handleChange}
             value={newSurrenderedPet.email}
@@ -149,6 +161,7 @@ const SurrenderForm = (props) => {
             id="petAge"
             type="number"
             name="petAge"
+            min="0"
             onChange={handleChange}
             value={newSurrenderedPet.petAge}
           />
@@ -180,7 +193,6 @@ const SurrenderForm = (props) => {
           Vaccination Status:
         <select
             id="vaccinationStatus"
-            type="text"
             name="vaccinationStatus"
             onChange={handleChange}
             value={newSurrenderedPet.vaccinationStatus}>
@@ -197,6 +209,5 @@ const SurrenderForm = (props) => {
     </>
   )
 }
-
 
 export default SurrenderForm

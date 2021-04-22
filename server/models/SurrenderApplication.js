@@ -25,24 +25,11 @@ class SurrenderApplication {
     this.phoneNumber = phoneNumber || phone_number
     this.email = email
     this.petName = petName
-    this.petAge = petAge
+    this.petAge = petAge  || NULL
     this.petType = petType || pet_type_id
     this.petImage = petImage || img_url
     this.vaccinationStatus = vaccinationStatus || vaccination_status
     this.adoptablePetId = adoptablePetId
-  }
-
-  static async findAll() {
-    try {
-      const results = await pool.query("SELECT * FROM surrender_applications;")
-      const surrenderData = results.rows
-      const surrenderPet = surrenderData.map(pet => new this(pet))
-      console.log(surrenderPet)
-      return surrenderPet
-    } catch (error) {
-      console.error(error)
-      throw error
-    }
   }
 
   async saveAdopt() {
