@@ -3,7 +3,7 @@ import AdoptablePetTypeTile from "./AdoptablePetTypeTile"
 
 const AdoptablePetType = props => {
   const [adoptablePetType, setAdoptablePetType] = useState([])
-  
+
   const getAdoptablePetType = async () => {
     try {
       const response = await fetch(`/api/v1/adoptable-pets/${props.match.params.type}`)
@@ -24,7 +24,7 @@ const AdoptablePetType = props => {
 
   const adoptablePetTypeList = adoptablePetType.map(pet => {
     return (
-      <AdoptablePetTypeTile 
+      <AdoptablePetTypeTile
         key={pet.id}
         id={pet.id}
         petType={props.match.params.type}
@@ -35,7 +35,17 @@ const AdoptablePetType = props => {
       />
     )
   })
-  return <>{adoptablePetTypeList}</>
+  return (
+    <div>
+      <h1 className="text-center">
+        {_.capitalize(props.match.params.type)}
+        {props.match.params.type === "fox" ? "es" : "s"}
+      </h1>
+      <div className="grid-x">
+        {adoptablePetTypeList}
+      </div>
+    </div>
+  )
 }
 
 export default AdoptablePetType
