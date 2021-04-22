@@ -47,20 +47,20 @@ class AdoptablePet {
     }
   }
 
-  static async getAvaliblePets(petType) {
+  static async getAvailablePets(petType) {
     try {
       const petsByType = await this.findById(petType)
 
-      const avaliblePets = petsByType.map(pet => {
+      const availablePets = petsByType.map(pet => {
         if(pet.availableForAdoption){
           return pet
         }
       })
 
       const finalResults =[]
-      for (let index = 0; index < avaliblePets.length; index++) {
-        const pet = avaliblePets[index];
-        if(await pet.getSurrendAppliaction()){
+      for (let index = 0; index < availablePets.length; index++) {
+        const pet = availablePets[index];
+        if(await pet.getSurrenderApplication()){
           finalResults.push(pet) 
         }
       }
@@ -85,10 +85,10 @@ class AdoptablePet {
     }
   }
 
-  async getSurrendAppliaction(){
+  async getSurrenderApplication(){
     try {
       const surrenderApp = await import('./SurrenderApplication.js') 
-      const SurrenderApplication = surrenderApp.defult
+      const SurrenderApplication = surrenderApp.default
 
       const relatedPetDataQuery = "Select * FROM surrender_applications WHERE adoptable_pet_id = $1;"
 
@@ -100,9 +100,20 @@ class AdoptablePet {
       } else {
         return false
       }
-
     } catch (error) {
       console.error("MODEL ERROR")
+    }
+  }
+
+  async save() {
+    try {
+      const queryOne = "INSERT INTO adoptable_pets(name,img_url, age, vaccination_status, pet_type_id) VALUES ($1,$2, $3, $4, (SELECT id FROM pet_types WHERE type = $5 LIMIT 1)) RETURNING id;"
+
+      const resultOne = await pool.query(queryOne, [this.name, this.imgUrl, this.age, this.vaccinationStatus, this.petTypeId])
+      const newInsertOne = resultOne.rows[0].id
+      this.adoptablePetId = newInsertOne
+
+    } catch (error) {
       console.error(error)
       throw error
     }

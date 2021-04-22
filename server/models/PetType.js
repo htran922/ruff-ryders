@@ -1,6 +1,4 @@
 import pg from "pg"
-import path from "path"
-import { fileURLToPath } from "url"
 
 const pool = new pg.Pool({
   connectionString: "postgres://postgres:password@localhost:5432/ruff_ryders_db"
@@ -17,10 +15,22 @@ class PetType {
   static async findAll() {
     try {
       const results = await pool.query("SELECT * FROM pet_types;")
-      const petTypesData = results.rows
-      const petTypes = petTypesData.map(type => new this(type))
+      const typeNameId = results.rows
+      const petTypes = typeNameId.map(type => new this(type))
       console.log(petTypes)
       return petTypes
+    } catch (error) {
+      console.error(error)
+      throw error
+    }
+  }
+
+  static async getTypeNameID(typeName) {
+    try {
+      const queryString = "SELECT id FROM pet_types WHERE type = $1"
+      const result = await pool.query(queryString, [typeName])
+      const typeNameId = result.rows[0]
+      return typeNameId
     } catch (error) {
       console.error(error)
       throw error
