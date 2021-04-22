@@ -8,7 +8,6 @@ import "../assets/scss/main.scss"
 import PetTypesList from "./PetTypesList.js"
 import AdoptablePetType from "./AdoptablePetType.js"
 import SurrenderForm from "./SurrenderForm.js"
-
 import AdoptablePetTypeShow from "./AdoptablePetTypeShow.js"
 
 const App = props => {
@@ -23,9 +22,9 @@ const App = props => {
           <Redirect to="/pets" />
         </Route>
         <Route exact path="/pets" component={PetTypesList} />
-        <Route exact path="/pets/:type" component={AdoptablePetType}></Route>
-        <Route exact path="/adoptions/new" component={SurrenderForm}></Route>
-        <Route exact path="/pets/:type/:id" component={AdoptablePetTypeShow}></Route>
+        <Route exact path="/pets/:type" component={AdoptablePetType} />
+        <Route exact path="/adoptions/new" component={SurrenderForm} />
+        <Route exact path="/pets/:type/:id" component={AdoptablePetTypeShow} />
       </Switch>
     </BrowserRouter>
   )

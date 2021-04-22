@@ -59,6 +59,21 @@ class AdoptablePet {
       throw error
     }
   }
+
+  async save() {
+    try {
+      const queryOne = "INSERT INTO adoptable_pets(name,img_url, age, vaccination_status, pet_type_id) VALUES ($1,$2, $3, $4, (SELECT id FROM pet_types WHERE type = $5 LIMIT 1)) RETURNING id;"
+
+      const resultOne = await pool.query(queryOne, [this.name, this.imgUrl, this.age, this.vaccinationStatus, this.petTypeId])
+      const newInsertOne = resultOne.rows[0].id
+      this.adoptablePetId = newInsertOne
+
+    } catch (error) {
+      console.error(error)
+      throw error
+    }
+  }
+
 }
 
 export default AdoptablePet
