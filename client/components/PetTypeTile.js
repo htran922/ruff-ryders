@@ -6,13 +6,14 @@ const PetTypeTile = props => {
   let imgURL = props.url
 
   return (
-    <div>
-      <Link to={`/pets/${props.type}`}>
+    <div id='padding' className="cell small-12 medium-4 large-4">
+       <Link to={`/pets/${props.type}`}>
         <h2>{_.capitalize(props.type)}</h2>
+        <p className = 'description'>{props.description}</p>
         <img src={imgURL} />
       </Link>
-      <p>{props.description}</p>
     </div>
+   
   )
 }
 
