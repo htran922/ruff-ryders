@@ -1,13 +1,15 @@
 import express from "express"
+import AdoptionForm from "../../../../client/components/AdoptionForm.js"
 
 import AdoptablePet from "../../../models/AdoptablePet.js"
+import AdoptionApplication from '../../../models/AdoptionApplication.js'
 
 const adoptablePetsRouter = new express.Router()
 
 adoptablePetsRouter.get("/:type", async (req, res) => {
   try {
     const adoptablePets = await AdoptablePet.findByType(req.params.type)
-    res.status(200).json({ adoptablePets })
+    res.json({ adoptablePets })
   } catch (error) {
     console.log("Router Error")
     console.error(error)
@@ -15,10 +17,14 @@ adoptablePetsRouter.get("/:type", async (req, res) => {
   }
 })
 
-adoptablePetsRouter.get("/:type/:id", async (req, res) => {
+adoptablePetsRouter.post('/:type/:id', async (req, res)=>{
   try {
-    const adoptablePet = await AdoptablePet.findById(req.params.id)
-    res.json({ adoptablePet })
+    const newApplication = new AdoptionApplication(req.body)
+    const petId = req.params.id
+    newApplication.adoptablePetId = petId
+
+    const persistedApp = await newApplication.save()
+    res.status(201)
   } catch (error) {
     console.log("Router Error")
     console.error(error)
@@ -26,6 +32,4 @@ adoptablePetsRouter.get("/:type/:id", async (req, res) => {
   }
 })
 
-
-
-export default adoptablePetsRouter
+export default adoptablePetsRoute
