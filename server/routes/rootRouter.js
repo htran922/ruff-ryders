@@ -9,7 +9,7 @@ const rootRouter = new express.Router()
 
 rootRouter.use("/api/v1/pet-types", petTypeRouter)
 rootRouter.use("/api/v1/adoptable-pets", adoptablePetsRouter)
-rootRouter.use("/api/v1/adoptions", surrenderRouter)
+rootRouter.use("/api/v1/surrenders", surrenderRouter)
 rootRouter.use("/api/v1/adoption-application", adoptionApplicationRouter)
 
 rootRouter.use("/", clientRouter)

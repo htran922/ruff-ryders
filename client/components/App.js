@@ -23,7 +23,7 @@ const App = props => {
         </Route>
         <Route exact path="/pets" component={PetTypesList} />
         <Route exact path="/pets/:type" component={AdoptablePetType} />
-        <Route exact path="/adoptions/new" component={SurrenderForm} />
+        <Route exact path="/surrenders/new" component={SurrenderForm} />
         <Route exact path="/pets/:type/:id" component={AdoptablePetTypeShow} />
       </Switch>
     </BrowserRouter>

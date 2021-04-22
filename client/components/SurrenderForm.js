@@ -21,7 +21,7 @@ const SurrenderForm = (props) => {
 
   const addNewSurrender = async () => {
     try {
-      const response = await fetch("/api/v1/adoptions", {
+      const response = await fetch("/api/v1/surrenders", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json"
