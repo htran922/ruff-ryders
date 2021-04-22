@@ -3,10 +3,11 @@ import AdoptablePetTypeTile from "./AdoptablePetTypeTile"
 
 const AdoptablePetType = props => {
   const [adoptablePetType, setAdoptablePetType] = useState([])
-  
+
   const getAdoptablePetType = async () => {
+    const { type } = props.match.params
     try {
-      const response = await fetch(`/api/v1/adoptable-pets/${props.match.params.type}`)
+      const response = await fetch(`/api/v1/pet-types/${type}`)
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
@@ -24,7 +25,7 @@ const AdoptablePetType = props => {
 
   const adoptablePetTypeList = adoptablePetType.map(pet => {
     return (
-      <AdoptablePetTypeTile 
+      <AdoptablePetTypeTile
         key={pet.id}
         id={pet.id}
         petType={props.match.params.type}
