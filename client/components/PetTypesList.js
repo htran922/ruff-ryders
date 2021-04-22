@@ -36,9 +36,11 @@ const PetTypesList = props => {
 
   return (
     <div>
-      <h1>Ruff Ryders</h1>
-      <h2>Helping people adopt pets.</h2>
-      {allPetTypes}
+      <h1 className='text-center'>Ruff Ryders</h1>
+      <h2 className="text-center">Helping people adopt pets</h2>
+      <div className="grid-x">
+        {allPetTypes}
+      </div>
     </div>
   )
 }
