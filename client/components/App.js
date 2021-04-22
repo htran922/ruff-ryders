@@ -9,7 +9,6 @@ import PetTypesList from "./PetTypesList.js"
 import AdoptablePetType from "./AdoptablePetType.js"
 import SurrenderForm from "./SurrenderForm.js"
 
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom"
 import AdoptablePetTypeShow from "./AdoptablePetTypeShow.js"
 
 const App = props => {
@@ -25,7 +24,7 @@ const App = props => {
         </Route>
         <Route exact path="/pets" component={PetTypesList} />
         <Route exact path="/pets/:type" component={AdoptablePetType}></Route>
-        <Route exact path = "/adoptions/new" component= {SurrenderForm} />
+        <Route exact path="/adoptions/new" component={SurrenderForm}></Route>
         <Route exact path="/pets/:type/:id" component={AdoptablePetTypeShow}></Route>
       </Switch>
     </BrowserRouter>

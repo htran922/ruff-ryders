@@ -1,23 +1,26 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { Redirect } from "react-router-dom"
 import _ from "lodash"
-//import ErrorList from './ErrorList'
+import ErrorList from './ErrorList'
 
 const SurrenderForm = (props) => {
   const [newSurrenderedPet, setNewSurrenderedPet] = useState({
-    name : "",
-    phoneNumber:"",
-    email : "",
+    name: "",
+    phoneNumber: "",
+    email: "",
     petName: "",
-    petAge:"",
+    petAge: "",
     petType: "",
     petImage: "",
-    vaccinationStatus:"pending"
+    vaccinationStatus: "pending"
   })
-  
+
   const [errors, setErrors] = useState({})
+  const [successMessage, setSuccessMessage] = useState(null)
+
   const addNewSurrender = async () => {
     try {
-      const response = await fetch("/api/v1/adoptions/new", {
+      const response = await fetch("/api/v1/adoptions", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json"
@@ -31,10 +34,10 @@ const SurrenderForm = (props) => {
       } else {
         const body = await response.json()
         console.log("Posted successfully!", body);
-        setShouldRedirect(true)
+
       }
     } catch (error) {
-      console.error(`Error in fetch: ${err.message}`)
+      console.error(`Error in fetch: ${error.message}`)
     }
   }
 
@@ -45,12 +48,12 @@ const SurrenderForm = (props) => {
     })
   }
 
-  const validFormSubmission = () =>{
+  const validFormSubmission = () => {
     let submitErrors = {}
-    
+
     const requiredFields = ['name', 'phoneNumber', 'email']
-    requiredFields.forEach(field =>{
-      if(newSurrenderedPet[field].trim() === ''){
+    requiredFields.forEach(field => {
+      if (newSurrenderedPet[field].trim() === '') {
         submitErrors = {
           ...submitErrors,
           [field]: 'is blank'
@@ -60,15 +63,18 @@ const SurrenderForm = (props) => {
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
   }
-  
+  const handleFormSuccess = () => {
+    setSuccessMessage("Your surrender request is in process")
+  }
   const handleSubmit = (event) => {
     event.preventDefault()
-    if(validFormSubmission()){
-      props.onFormSubmit(addNewSurrender())
+    if (validFormSubmission()) {
+      addNewSurrender()
+      handleFormSuccess()
     }
   }
-  
-  const petTypeArray = ['Cat', 'Dog', 'Fox']
+
+  const petTypeArray = ['', 'cat', 'dog', 'fox']
   const petTypeList = petTypeArray.map(type => {
     return (
       <option key={type} value={type}>
@@ -89,8 +95,12 @@ const SurrenderForm = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}
+      >
+        <ErrorList errors={errors} />
         <h3>Surrender Application</h3>
+        <p> We recognize making the decision to rehome your animal is not an easy decision. If there is anything we might be able to do to help you troubleshoot the situation you are facing please reach out to us. </p>
+
         <label htmlFor="name">
           Name:
         <input
@@ -175,11 +185,13 @@ const SurrenderForm = (props) => {
             onChange={handleChange}
             value={newSurrenderedPet.vaccinationStatus}>
             {vaccinationStatusList}
-          
-        </select>
+
+          </select>
         </label>
         <div>
+          
           <input className="button" type="submit" value="Submit" />
+          <div>{successMessage}</div>
         </div>
       </form>
     </>
