@@ -7,7 +7,7 @@ const adoptablePetsRouter = new express.Router()
 adoptablePetsRouter.get("/:type", async (req, res) => {
   try {
     const adoptablePets = await AdoptablePet.findByType(req.params.type)
-    res.json({ adoptablePets })
+    res.status(200).json({ adoptablePets })
   } catch (error) {
     console.log("Router Error")
     console.error(error)
@@ -18,7 +18,7 @@ adoptablePetsRouter.get("/:type", async (req, res) => {
 adoptablePetsRouter.get("/:type/:id", async (req, res) => {
   try {
     const adoptablePet = await AdoptablePet.findById(req.params.id)
-    res.json({ adoptablePet })
+    res.status(200).json({ adoptablePet })
   } catch (error) {
     console.log("Router Error")
     console.error(error)
