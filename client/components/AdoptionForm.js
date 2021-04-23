@@ -98,7 +98,7 @@ const AdoptionForm = props => {
   })
 
   return (
-    <>
+    <div className="adoption-form">
       <form onSubmit={onSubmitHandler}>
         <ErrorList errors={errors} />
         <label htmlFor="name">
@@ -139,13 +139,16 @@ const AdoptionForm = props => {
             {homeStatusList}
           </select>
         </label>
-
-        <input type="submit" value="Apply" />
-        <button type="button" onClick={clearForm}>
-          Clear Form
-        </button>
+        <div id="adoption-form-btns">
+          <button id="clear-btn" type="button" onClick={clearForm}>
+            Clear Form
+          </button>
+          <button id="apply-btn" type="submit">
+            Apply
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   )
 }
 

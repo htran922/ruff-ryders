@@ -38,13 +38,13 @@ const AdoptablePetTypeShow = props => {
     <div className="pet-detail-body">
       <div className="pet-detail-container">
         <div className="pet-detail-left">
-          <h1>Hi, my name is {adoptablePet.name}!</h1>
+          <h2>Hi, my name is <strong>{adoptablePet.name}</strong>!</h2>
           <div className="pet-detail-img">
             <img src={adoptablePet.imgUrl} />
           </div>
           <div className="pet-detail-stats">
-            <p>Age: {adoptablePet.age}</p>
-            <p>Vaccinated: {adoptablePet.vaccinationStatus ? "Yes" : "No"}</p>
+            <p><strong>Age:</strong> {adoptablePet.age}</p>
+            <p><strong>Vaccinated:</strong> {adoptablePet.vaccinationStatus ? "Yes" : "No"}</p>
           </div>
         </div>
         <div className="pet-detail-right">
@@ -52,7 +52,7 @@ const AdoptablePetTypeShow = props => {
             <h4>Who am I?</h4>
             <p>{adoptablePet.adoptionStory}</p>
           </div>
-          <button className="pet-adopt-me-btn" type="button" onClick={handleAdoptMeClick}>
+          <button id="adopt-me-btn" type="button" onClick={handleAdoptMeClick}>
             Adopt Me!
           </button>
           {showAdoptionForm ? (
@@ -63,7 +63,7 @@ const AdoptablePetTypeShow = props => {
               onFormSubmit={handleFormSuccess}
             />
           ) : null}
-          <div>{successMessage}</div>
+          <div className="adoption-form-success"><em>{successMessage}</em></div>
         </div>
       </div>
     </div>

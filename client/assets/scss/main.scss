@@ -1,7 +1,8 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
-@import url("https://fonts.googleapis.com/css2?family=Raleway");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 
 // place global css here
 *,
@@ -15,16 +16,31 @@
   tab-size: 4;
 }
 
-$ff-body: "Raleway", sans-serif;
+$ff-title: "Bangers", cursive;
+$ff-header: "Raleway", sans-serif;
+$ff-body: "Montserrat", sans-serif;
+
+$clr-accent: #eb5f5f;
 
 body {
   font-family: $ff-body;
-  font-weight: 700;
+}
+
+h1 {
+  font-family: $ff-title;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $ff-header;
 }
 
 /* Landing Page Styling */
 #pet-type-tile {
-  padding: 5px;
+  padding: 3rem;
 }
 
 /* Single Pet Card Styling */
@@ -48,18 +64,20 @@ body {
 }
 
 .single-pet-card-name {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  a {
+    color: $clr-accent;
+  }
 }
 
 .single-pet-info {
-  margin: 1rem;
+  margin: 1rem auto;
+  width: 200px;
 }
 
 /* Pet Detail Styling */
 .pet-detail-body {
-  position: fixed;
-  height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,21 +85,22 @@ body {
 
 .pet-detail-container {
   display: flex;
-  margin: 0 auto;
+  margin: 5% auto;
   padding: 1rem 2rem;
   border-radius: 2px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .pet-detail-left {
-  h1 {
+  h2 {
     font-size: 2rem;
   }
   margin: 1em 2em;
+  width: 300px;
 }
 
 .pet-detail-img {
-  width: 300px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
 }
@@ -94,21 +113,51 @@ body {
   h4 {
     font-size: 1.5rem;
   }
-  margin: 0 2rem;
+  margin: 3rem 2rem;
+  width: 300px;
 }
 
 .pet-detail-story {
-  margin-top: 3em;
+  h4 {
+    font-weight: 700;
+    color: $clr-accent;
+  }
 }
 
-.pet-adopt-me-btn {
-  background-color: #EB5F5F;  
-  color: #fff;
-  padding: 1rem;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
   .pet-detail-container {
     flex-direction: column;
   }
+}
+
+/* Adoption Form Styling */
+.adoption-form,
+.adoption-form-success {
+  margin: 1rem 0;
+}
+
+/* Button Styling*/
+#adoption-form-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+#adopt-me-btn {
+  background-color: $clr-accent;
+  color: #fff;
+  padding: 1rem;
+  border: none;
+}
+
+#apply-btn {
+  background-color: #00b9ae;
+  color: #fff;
+  padding: 1rem;
+  border: none;
+}
+
+#clear-btn {
+  background-color: #eee;
+  padding: 1rem;
+  border: none;
 }

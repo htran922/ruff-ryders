@@ -13,15 +13,18 @@ const AdoptablePetTypeTile = ({ id, petType, imgUrl, name, age, vaccinationStatu
         <h2 className="text-center single-pet-card-name">
           <Link to={`/pets/${petType}/${id}`}>{name}</Link>
         </h2>
-
         <div className="single-pet-img">
           <Link to={`/pets/${petType}/${id}`}>
             <img src={imgUrl} />
           </Link>
         </div>
         <div className="single-pet-info">
-          <p>Age: {age}</p>
-          <p>Vaccination Status: {isVaccinated}</p>
+          <p>
+            <strong>Age:</strong> {age}
+          </p>
+          <p>
+            <strong>Vaccination Status:</strong> {isVaccinated}
+          </p>
         </div>
       </div>
     </div>
