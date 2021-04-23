@@ -5,10 +5,7 @@ import "foundation-sites"
 import $ from "jquery"
 import "../assets/scss/main.scss"
 
-import PetTypesList from "./PetTypesList.js"
-import AdoptablePetType from "./AdoptablePetType.js"
-import SurrenderForm from "./SurrenderForm.js"
-import AdoptablePetTypeShow from "./AdoptablePetTypeShow.js"
+import NavBar from './NavBar.js'
 
 const App = props => {
   useEffect(() => {
@@ -17,15 +14,7 @@ const App = props => {
 
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Redirect to="/pets" />
-        </Route>
-        <Route exact path="/pets" component={PetTypesList} />
-        <Route exact path="/pets/:type" component={AdoptablePetType} />
-        <Route exact path="/surrenders/new" component={SurrenderForm} />
-        <Route exact path="/pets/:type/:id" component={AdoptablePetTypeShow} />
-      </Switch>
+      <Route path='/' component={NavBar} />
     </BrowserRouter>
   )
 }
