@@ -47,6 +47,32 @@ class AdoptablePet {
     }
   }
 
+  static async getAvailablePets(petType) {
+    try {
+      const petsByType = await this.findByType(petType)
+
+      const availablePets = petsByType.map(pet => {
+        if(pet.availableForAdoption){
+          return pet
+        }
+      })
+
+      const finalResults =[]
+      for (let index = 0; index < availablePets.length; index++) {
+        const pet = availablePets[index];
+        if(await pet.getSurrenderApplication(pet.id)){
+          finalResults.push(pet) 
+        }
+      }
+      console.log(finalResults)
+      return Promise.all(finalResults)
+    }catch (error) {
+      console.error("MODEL ERROR")
+      console.error(error)
+      throw error
+    }
+  }
+
   static async findById(id) {
     try {
       const result = await pool.query("SELECT * FROM adoptable_pets WHERE id = $1;", [id])
@@ -57,6 +83,23 @@ class AdoptablePet {
       console.error("MODEL ERROR")
       console.error(error)
       throw error
+    }
+  }
+
+  async getSurrenderApplication(id){
+    try {
+      const surrenderApp = await import('./SurrenderApplication.js') 
+      const SurrenderApplication = surrenderApp.default
+
+      const relatedPetDataQuery = "Select * FROM surrender_applications WHERE adoptable_pet_id = $1 AND status = 'approved';"
+
+      const resultsData = await pool.query(relatedPetDataQuery, [id])
+
+      if(resultsData){
+        return true
+      }
+    } catch (error) {
+      console.error("MODEL ERROR")
     }
   }
 
