@@ -4,7 +4,7 @@ import AdoptionApplication from "../../../models/AdoptionApplication.js"
 
 const adoptionApplicationRouter = new express.Router()
 
-adoptionApplicationRouter.post("/", async (req, res) => {
+adoptionApplicationRouter.post("/", async (req, res) => { 
   try {
     const newAdoptionApplication = new AdoptionApplication(req.body)
     if (await newAdoptionApplication.save()) {
