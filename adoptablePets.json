@@ -14,16 +14,16 @@
       "img_url": "https://source.unsplash.com/7GX5aICb5i4/640x960",
       "age": "5",
       "vaccination_status": false,
-      "adoption_story": "Just a kitty from Tennessee.",
+      "adoption_story": "Just a kitty from Tennessee. Would be best with kids over 12 years old and no other cats.",
       "available_for_adoption": true,
       "type": "cat"
     },
     {
       "name": "Scully",
-      "img_url": "https://source.unsplash.com/G8cB8hY3yvU/640x853",
+      "img_url": "https://source.unsplash.com/mx0DEnfYxic/640x853",
       "age": "1",
       "vaccination_status": false,
-      "adoption_story": "Mr Basil Waygu Toots-a-lot!",
+      "adoption_story": "Enjoys long walks on the beach,long walks in the park, long walks in the snow, long walks in the woods,long walks in the city. Good with children.",
       "available_for_adoption": true,
       "type": "dog"
     },
@@ -32,7 +32,7 @@
       "img_url": "https://source.unsplash.com/mEdKuPYJe1I/640x936",
       "age": "4",
       "vaccination_status": false,
-      "adoption_story": "Swift swift swift.",
+      "adoption_story": "Swift swift swift. Domesticated fox, looking for a home with a large yard, preferably a farm.",
       "available_for_adoption": true,
       "type": "fox"
     },
@@ -41,9 +41,81 @@
       "img_url": "https://source.unsplash.com/PrkBKS0BcwE/640x960",
       "age": "2",
       "vaccination_status": false,
-      "adoption_story": "Quick like a fox.",
+      "adoption_story": "Quick like a fox. Domesticated fox, looking for a home with a large yard, preferably a farm.",
       "available_for_adoption": true,
       "type": "fox"
+    },
+    {
+      "name": "Albie",
+      "img_url": "https://source.unsplash.com/Sg3XwuEpybU/640x960",
+      "age": "2",
+      "vaccination_status": true,
+      "adoption_story": "Born in a factory in China, would love to live its best life in a home preferably only with small dogs. Good with children.",
+      "available_for_adoption": true,
+      "type": "dog"
+    },
+    {
+      "name": "Ozzie",
+      "img_url": "https://source.unsplash.com/pOUA8Xay514/640x960",
+      "age": "1",
+      "vaccination_status": true,
+      "adoption_story": "Mr. Chompers jumps a lot, from the south. Currently fostered in Tennessee, available for transfer with adoption. Pug-mix.",
+      "available_for_adoption": true,
+      "type": "dog"
+    },
+    {
+      "name": "Spicy",
+      "img_url": "https://source.unsplash.com/7-ToFEHzMNw/640x960",
+      "age": "9",
+      "vaccination_status": true,
+      "adoption_story": "AKA Melissa the Moose, just a lil old lady looking for a calm, quiet home. Not recommended with small children.",
+      "available_for_adoption": true,
+      "type": "dog"
+    },
+    {
+      "name": "Silver",
+      "img_url": "https://source.unsplash.com/tIfrzHxhPYQ/640x960",
+      "age": "6",
+      "vaccination_status": true,
+      "adoption_story": "Owner surrendered, looking for a home with a yard or a farm would be preferred.",
+      "available_for_adoption": true,
+      "type": "fox"
+    },
+    {
+      "name": "Swiper",
+      "img_url": "https://source.unsplash.com/HQqIOc8oYro/640x960",
+      "age": "4",
+      "vaccination_status": true,
+      "adoption_story": "Found injured, currently recovering, looking for a foster home before being released to the wild.",
+      "available_for_adoption": true,
+      "type": "fox"
+    },
+    {
+      "name": "Batman",
+      "img_url": "https://source.unsplash.com/WHTLPrTPBk0/640x960",
+      "age": "1",
+      "vaccination_status": true,
+      "adoption_story": "Medium-haired floof. Would prefer to live alone and be someone's best friend.",
+      "available_for_adoption": true,
+      "type": "cat"
+    },
+    {
+      "name": "Neutrino",
+      "img_url": "https://source.unsplash.com/75715CVEJhI/640x960",
+      "age": "2",
+      "vaccination_status": true,
+      "adoption_story": "Adventure cat, loves camping, good with dogs and other cats! Looking for its forever home.",
+      "available_for_adoption": true,
+      "type": "cat"
+    },
+    {
+      "name": "Ron",
+      "img_url": "https://source.unsplash.com/uM172wj3tMk/640x960",
+      "age": "3",
+      "vaccination_status": true,
+      "adoption_story": "One-half Swedish, one-quarter Polish, one-quarter Winnebago 'murder machine' who loves Led Zeppelin.",
+      "available_for_adoption": true,
+      "type": "cat"
     }
   ]
 }

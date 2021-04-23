@@ -41,9 +41,13 @@ const PetTypesList = props => {
           <img src="./images/landing.jpg" alt="human with dog sunny day"/>
         </div>
         <h2 className="landing-text">Helping people adopt pets</h2>
+        <button type="button" className="button primary large landing-button">Learn More</button>
+      </div>
+      <div className="landing-paw-image">
+        <img src="./images/paw.png" alt="dog paw"/>
       </div>
       <hr></hr>
-      <h2 className="text-center">See all pets available for adoptions</h2>
+      <h2 className="text-center">See all pets available for adoption</h2>
       <div className="grid-x">
         {allPetTypes}
       </div>

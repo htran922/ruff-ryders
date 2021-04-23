@@ -14,7 +14,6 @@ const NavBar = props => {
           <div className="menu-item">
             <Link to="/pets">
               <div className="logo-container">
-                {/* <img src="./images/logo.png" alt="logo"/> */}
                 <h1>Ruff Ryders</h1>
               </div>
             </Link>

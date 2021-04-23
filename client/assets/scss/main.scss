@@ -45,12 +45,19 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 nav.top-bar {
   background-color: #fff;
   box-shadow: 0px 15px 10px -15px #111; 
+}
+
+@media screen and (max-width: 768px) {
+  div.menu {
+    display: flex;
+  }
+
 }
 
 /* Landing Page Styling */
@@ -60,13 +67,47 @@ nav.top-bar {
 
 .landing-container {
   position: relative;
+  text-align: center;
 }
 
 .landing-text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   position: absolute;
-  top: 50px;
-  left: 20px;
+  width: 100%;
+  font-size: 3rem;
   font-weight: 700;
+  text-shadow: 0 1px 10px #4d4751, 0 0 4px #4d4751;
+}
+
+.landing-button {
+  padding: 1rem;
+  color: #fff;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.landing-paw-image {
+  height: auto;
+  width: 100px;
+  margin: 0.5rem auto;
+}
+
+@media screen and (max-width: 768px) {
+  .landing-text,
+  .landing-button {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1216px) {
+  .landing-button {
+    margin-top: 1rem;
+  }
 }
 
 /* Pets by Type Styling */
