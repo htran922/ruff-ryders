@@ -131,9 +131,9 @@ const SurrenderForm = props => {
   })
 
   return (
-    <div>
+    <div className="surrender-form-container">
       <h1 className="text-center">Surrender Application</h1>
-      <form className="surrender-form-container" onSubmit={handleSubmit}>
+      <form className="surrender-form" onSubmit={handleSubmit}>
         <p>
           We recognize making the decision to rehome your animal is not an easy decision. If there
           is anything we might be able to do to help you troubleshoot the situation you are facing

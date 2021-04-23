@@ -143,7 +143,7 @@ const AdoptionForm = props => {
           <button id="clear-btn" type="button" onClick={clearForm}>
             Clear Form
           </button>
-          <button id="apply-btn" type="submit">
+          <button className="apply-btn" type="submit">
             Apply
           </button>
         </div>

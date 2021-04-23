@@ -39,7 +39,7 @@ const AdoptablePetType = props => {
   })
   return (
     <div>
-      <h1 className="text-center">
+      <h1 className="pet-type-title text-center">
         {_.capitalize(props.match.params.type)}
         {props.match.params.type === "fox" ? "es" : "s"}
       </h1>

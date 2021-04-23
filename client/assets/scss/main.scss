@@ -38,9 +38,40 @@ h6 {
   font-family: $ff-header;
 }
 
+
+/* Navigation Bar Styling */
+nav {
+  height: 70px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow:hidden;
+}
+
+nav.top-bar {
+  background-color: #fff;
+  box-shadow: 0px 15px 10px -15px #111; 
+}
+
 /* Landing Page Styling */
 #pet-type-tile {
   padding: 3rem;
+}
+
+.landing-container {
+  position: relative;
+}
+
+.landing-text {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  font-weight: 700;
+}
+
+/* Pets by Type Styling */
+.pet-type-title {
+  padding: 2rem;
 }
 
 /* Single Pet Card Styling */
@@ -138,6 +169,10 @@ h6 {
 
 /* Surrender Form Styling */
 .surrender-form-container {
+  padding: 2rem;
+}
+
+.surrender-form {
   border-radius: 2px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   max-width: 800px;
@@ -181,7 +216,7 @@ h6 {
 }
 
 @media screen and (max-width: 960px) {
-  .surrender-form-container {
+  .surrender-form {
     min-width: 300px;
   }
   .surrender-form-group {
@@ -212,14 +247,17 @@ h6 {
   color: #fff;
   padding: 1rem;
   border: none;
+  font-weight: 800;
 }
 
 .surrender-btn {
   width: 100%;
+  font-weight: 800;
 }
 
 #clear-btn {
   background-color: #eee;
   padding: 1rem;
   border: none;
+  font-weight: 800;
 }

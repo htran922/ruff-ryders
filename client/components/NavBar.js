@@ -8,22 +8,38 @@ import SurrenderForm from "./SurrenderForm"
 
 const NavBar = props => {
   return (
-    <div className="navbar-container">
-      <div className="menu-item">
-        <Link to="/pets">Welcome Page</Link>
-      </div>
-      <div className="menu-item">
-        <Link to="/pets/cat">Cats</Link>
-      </div>
-      <div className="menu-item">
-        <Link to="/pets/dog">Dogs</Link>
-      </div>
-      <div className="menu-item">
-        <Link to="/pets/fox">Foxes</Link>
-      </div>
-      <div className="menu-item">
-        <Link to="/adoptions/new">Surrender Your Pet</Link>
-      </div>
+    <div>
+      <nav className="top-bar sticky" data-sticky data-margin-top="0">
+        <div className="top-bar-left">
+          <div className="menu-item">
+            <Link to="/pets">
+              <div className="logo-container">
+                {/* <img src="./images/logo.png" alt="logo"/> */}
+                <h1>Ruff Ryders</h1>
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="top-bar-right">
+          <div className="menu">
+            <div className="menu-item">
+              <Link to="/pets">Home</Link>
+            </div>
+            <div className="menu-item">
+              <Link to="/pets/cat">Cats</Link>
+            </div>
+            <div className="menu-item">
+              <Link to="/pets/dog">Dogs</Link>
+            </div>
+            <div className="menu-item">
+              <Link to="/pets/fox">Foxes</Link>
+            </div>
+            <div className="menu-item">
+              <Link to="/adoptions/new">Surrender Your Pet</Link>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <Switch>
         <Route exact path="/">
