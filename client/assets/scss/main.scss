@@ -136,6 +136,63 @@ h6 {
   margin: 1rem 0;
 }
 
+/* Surrender Form Styling */
+.surrender-form-container {
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  max-width: 800px;
+  width: 60%;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.surrender-form-group {
+  display: flex;
+  label {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-right: 1rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    padding-right: 1.5rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  select {
+    flex: 3;
+    height: 3rem;
+    max-width: 500px;
+  }
+}
+
+.required-star {
+  color: #ff0000;
+}
+
+.surrender-form-success {
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+@media screen and (max-width: 960px) {
+  .surrender-form-container {
+    min-width: 300px;
+  }
+  .surrender-form-group {
+    flex-direction: column;
+    select {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
 /* Button Styling*/
 #adoption-form-btns {
   display: flex;
@@ -149,11 +206,16 @@ h6 {
   border: none;
 }
 
-#apply-btn {
+.apply-btn,
+.surrender-btn {
   background-color: #00b9ae;
   color: #fff;
   padding: 1rem;
   border: none;
+}
+
+.surrender-btn {
+  width: 100%;
 }
 
 #clear-btn {

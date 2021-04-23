@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react"
 import _ from "lodash"
-import ErrorList from './ErrorList'
+import ErrorList from "./ErrorList"
 
-
-const SurrenderForm = (props) => {
+const SurrenderForm = props => {
   const [newSurrenderedPet, setNewSurrenderedPet] = useState({
     name: "",
     phoneNumber: "",
@@ -31,9 +30,10 @@ const SurrenderForm = (props) => {
       if (!response.ok) {
         const errorMessage = `${response.type} (${response.statusText})`
         const error = new Error(errorMessage)
-        throw (error)
+        throw error
       } else {
         const body = await response.json()
+        console.log(body)
         handleFormSuccess()
       }
     } catch (error) {
@@ -43,15 +43,13 @@ const SurrenderForm = (props) => {
 
   const getPetTypes = async () => {
     try {
-
-      const response = await fetch('/api/v1/pet-types')
+      const response = await fetch("/api/v1/pet-types")
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
-        throw (error)
+        throw error
       }
       const body = await response.json()
-
       setPetTypes(body.petTypes)
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
@@ -62,7 +60,7 @@ const SurrenderForm = (props) => {
     getPetTypes()
   }, [])
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setNewSurrenderedPet({
       ...newSurrenderedPet,
       [event.currentTarget.name]: event.currentTarget.value
@@ -72,24 +70,32 @@ const SurrenderForm = (props) => {
   const validFormSubmission = () => {
     let submitErrors = {}
 
-    const requiredFields = ['name', 'phoneNumber', 'email', 'petImage', 'petAge', 'petType', 'vaccinationStatus']
+    const requiredFields = [
+      "name",
+      "phoneNumber",
+      "email",
+      "petImage",
+      "petAge",
+      "petType",
+      "vaccinationStatus"
+    ]
     requiredFields.forEach(field => {
-      if (newSurrenderedPet[field].trim() === '') {
+      if (newSurrenderedPet[field].trim() === "") {
         submitErrors = {
           ...submitErrors,
-          [field]: 'is blank'
+          [field]: "is blank"
         }
       }
     })
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
   }
+
   const handleFormSuccess = () => {
     setSuccessMessage("Your surrender request is in process")
-
   }
-  const handleSubmit = (event) => {
 
+  const handleSubmit = event => {
     event.preventDefault()
     if (validFormSubmission()) {
       addNewSurrender()
@@ -114,7 +120,7 @@ const SurrenderForm = (props) => {
     )
   })
 
-  const vaccinationStatusArray = ['', 'Yes', 'No']
+  const vaccinationStatusArray = ["", "Yes", "No"]
 
   const vaccinationStatusList = vaccinationStatusArray.map(vaccination => {
     return (
@@ -125,58 +131,73 @@ const SurrenderForm = (props) => {
   })
 
   return (
-    <>
-      <form onSubmit={handleSubmit}
-      >
+    <div>
+      <h1 className="text-center">Surrender Application</h1>
+      <form className="surrender-form-container" onSubmit={handleSubmit}>
+        <p>
+          We recognize making the decision to rehome your animal is not an easy decision. If there
+          is anything we might be able to do to help you troubleshoot the situation you are facing
+          please reach out to us.
+        </p>
         <ErrorList errors={errors} />
-        <h3>Surrender Application</h3>
-        <p> We recognize making the decision to rehome your animal is not an easy decision. If there is anything we might be able to do to help you troubleshoot the situation you are facing please reach out to us. </p>
 
-        <label htmlFor="name">
-          Name:
-        <input
+        <div className="surrender-form-group">
+          <label htmlFor="name">
+            Name: <span className="required-star">*</span>
+          </label>
+          <input
             id="name"
             type="text"
             name="name"
             onChange={handleChange}
             value={newSurrenderedPet.name}
           />
-        </label>
+        </div>
 
-        <label htmlFor="phoneNumber">
-          Phone Number:
-        <input
+        <div className="surrender-form-group">
+          <label htmlFor="phoneNumber">
+            Phone Number: <span className="required-star">*</span>
+          </label>
+          <input
             id="phoneNumber"
             type="text"
             name="phoneNumber"
             onChange={handleChange}
             value={newSurrenderedPet.phoneNumber}
           />
-        </label>
+        </div>
 
-        <label htmlFor="email">
-          Email:
-        <input
+        <div className="surrender-form-group">
+          <label htmlFor="email">
+            Email: <span className="required-star">*</span>
+          </label>
+          <input
             id="email"
             type="email"
             name="email"
             onChange={handleChange}
             value={newSurrenderedPet.email}
           />
-        </label>
-        <label htmlFor="petName">
-          Pet Name:
-        <input
+        </div>
+
+        <div className="surrender-form-group">
+          <label htmlFor="petName">
+            Pet Name: <span className="required-star">*</span>
+          </label>
+          <input
             id="petName"
             type="text"
             name="petName"
             onChange={handleChange}
             value={newSurrenderedPet.petName}
           />
-        </label>
-        <label htmlFor="petAge">
-          Pet Age:
-        <input
+        </div>
+
+        <div className="surrender-form-group">
+          <label htmlFor="petAge">
+            Pet Age: <span className="required-star">*</span>
+          </label>
+          <input
             id="petAge"
             type="number"
             name="petAge"
@@ -184,48 +205,54 @@ const SurrenderForm = (props) => {
             onChange={handleChange}
             value={newSurrenderedPet.petAge}
           />
-        </label>
+        </div>
 
-        <label htmlFor="petType">
-          Pet Type:
-        <select
+        <div className="surrender-form-group">
+          <label htmlFor="petType">
+            Pet Type: <span className="required-star">*</span>
+          </label>
+          <select
             id="petType"
             name="petType"
             onChange={handleChange}
-            value={newSurrenderedPet.petType}>
+            value={newSurrenderedPet.petType}
+          >
             {petTypeList}
           </select>
-        </label>
+        </div>
 
-        <label htmlFor="petImage">
-          Pet Image:
-        <input
+        <div className="surrender-form-group">
+          <label htmlFor="petImage">
+            Pet Image: <span className="required-star">*</span>
+          </label>
+          <input
             id="petImage"
             type="text"
             name="petImage"
             onChange={handleChange}
             value={newSurrenderedPet.petImage}
           />
-        </label>
+        </div>
 
-        <label htmlFor="vaccinationStatus">
-          Vaccination Status:
-        <select
+        <div className="surrender-form-group">
+          <label htmlFor="vaccinationStatus">
+            Vaccination Status: <span className="required-star">*</span>
+          </label>
+          <select
             id="vaccinationStatus"
             name="vaccinationStatus"
             onChange={handleChange}
-            value={newSurrenderedPet.vaccinationStatus}>
+            value={newSurrenderedPet.vaccinationStatus}
+          >
             {vaccinationStatusList}
-
           </select>
-        </label>
-        <div>
-
-          <input className="button" type="submit" value="Submit" />
-          <div>{successMessage}</div>
         </div>
+
+        <input className="surrender-btn" type="submit" value="Submit"/>
+
+        <div className="surrender-form-success">{successMessage}</div>
       </form>
-    </>
+    </div>
   )
 }
 
