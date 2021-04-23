@@ -1,6 +1,9 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+
 // place global css here
 *,
 *::before,
@@ -11,4 +14,250 @@
 :root {
   -moz-tab-size: 4;
   tab-size: 4;
+}
+
+$ff-title: "Bangers", cursive;
+$ff-header: "Raleway", sans-serif;
+$ff-body: "Montserrat", sans-serif;
+
+$clr-accent: #eb5f5f;
+
+body {
+  font-family: $ff-body;
+}
+
+h1 {
+  font-family: $ff-title;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $ff-header;
+}
+
+
+/* Navigation Bar Styling */
+nav {
+  height: 70px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow:hidden;
+}
+
+nav.top-bar {
+  background-color: #fff;
+  box-shadow: 0px 15px 10px -15px #111; 
+}
+
+/* Landing Page Styling */
+#pet-type-tile {
+  padding: 3rem;
+}
+
+.landing-container {
+  position: relative;
+}
+
+.landing-text {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  font-weight: 700;
+}
+
+/* Pets by Type Styling */
+.pet-type-title {
+  padding: 2rem;
+}
+
+/* Single Pet Card Styling */
+.single-pet-card-container {
+  width: 75%;
+  min-width: 250px;
+  height: 500px;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 1rem auto;
+}
+
+.single-pet-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: auto;
+  min-height: 300px;
+  margin: 1rem auto;
+}
+
+.single-pet-card-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  a {
+    color: $clr-accent;
+  }
+}
+
+.single-pet-info {
+  margin: 1rem auto;
+  width: 200px;
+}
+
+/* Pet Detail Styling */
+.pet-detail-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pet-detail-container {
+  display: flex;
+  margin: 5% auto;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.pet-detail-left {
+  h2 {
+    font-size: 2rem;
+  }
+  margin: 1em 2em;
+  width: 300px;
+}
+
+.pet-detail-img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.pet-detail-stats {
+  margin-top: 1em;
+}
+
+.pet-detail-right {
+  h4 {
+    font-size: 1.5rem;
+  }
+  margin: 3rem 2rem;
+  width: 300px;
+}
+
+.pet-detail-story {
+  h4 {
+    font-weight: 700;
+    color: $clr-accent;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .pet-detail-container {
+    flex-direction: column;
+  }
+}
+
+/* Adoption Form Styling */
+.adoption-form,
+.adoption-form-success {
+  margin: 1rem 0;
+}
+
+/* Surrender Form Styling */
+.surrender-form-container {
+  padding: 2rem;
+}
+
+.surrender-form {
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  max-width: 800px;
+  width: 60%;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.surrender-form-group {
+  display: flex;
+  label {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-right: 1rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    padding-right: 1.5rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  select {
+    flex: 3;
+    height: 3rem;
+    max-width: 500px;
+  }
+}
+
+.required-star {
+  color: #ff0000;
+}
+
+.surrender-form-success {
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+@media screen and (max-width: 960px) {
+  .surrender-form {
+    min-width: 300px;
+  }
+  .surrender-form-group {
+    flex-direction: column;
+    select {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+/* Button Styling*/
+#adoption-form-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+#adopt-me-btn {
+  background-color: $clr-accent;
+  color: #fff;
+  padding: 1rem;
+  border: none;
+}
+
+.apply-btn,
+.surrender-btn {
+  background-color: #00b9ae;
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  font-weight: 800;
+}
+
+.surrender-btn {
+  width: 100%;
+  font-weight: 800;
+}
+
+#clear-btn {
+  background-color: #eee;
+  padding: 1rem;
+  border: none;
+  font-weight: 800;
 }

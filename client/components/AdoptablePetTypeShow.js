@@ -35,25 +35,37 @@ const AdoptablePetTypeShow = props => {
   }
 
   return (
-    <div>
-      <div>{successMessage}</div>
-      <img src={adoptablePet.imgUrl} />
-      <h1>{adoptablePet.name}</h1>
-      <p>Age: {adoptablePet.age}</p>
-      <p>Vaccinated: {adoptablePet.vaccinationStatus ? "Yes" : "No"}</p>
-      <p>{adoptablePet.adoptionStory}</p>
-
-      <button type="button" onClick={handleAdoptMeClick}>
-        Adopt Me!
-      </button>
-      {showAdoptionForm ? (
-        <AdoptionForm
-          id={props.match.params.id}
-          type={props.match.params.type}
-          adoptablePetId={adoptablePet.id}
-          onFormSubmit={handleFormSuccess}
-        />
-      ) : null}
+    <div className="pet-detail-body">
+      <div className="pet-detail-container">
+        <div className="pet-detail-left">
+          <h2>Hi, my name is <strong>{adoptablePet.name}</strong>!</h2>
+          <div className="pet-detail-img">
+            <img src={adoptablePet.imgUrl} />
+          </div>
+          <div className="pet-detail-stats">
+            <p><strong>Age:</strong> {adoptablePet.age}</p>
+            <p><strong>Vaccinated:</strong> {adoptablePet.vaccinationStatus ? "Yes" : "No"}</p>
+          </div>
+        </div>
+        <div className="pet-detail-right">
+          <div className="pet-detail-story">
+            <h4>Who am I?</h4>
+            <p>{adoptablePet.adoptionStory}</p>
+          </div>
+          <button id="adopt-me-btn" type="button" onClick={handleAdoptMeClick}>
+            Adopt Me!
+          </button>
+          {showAdoptionForm ? (
+            <AdoptionForm
+              id={props.match.params.id}
+              type={props.match.params.type}
+              adoptablePetId={adoptablePet.id}
+              onFormSubmit={handleFormSuccess}
+            />
+          ) : null}
+          <div className="adoption-form-success"><em>{successMessage}</em></div>
+        </div>
+      </div>
     </div>
   )
 }

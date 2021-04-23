@@ -17,7 +17,6 @@ class PetType {
       const results = await pool.query("SELECT * FROM pet_types;")
       const typeNameId = results.rows
       const petTypes = typeNameId.map(type => new this(type))
-      console.log(petTypes)
       return petTypes
     } catch (error) {
       console.error(error)
