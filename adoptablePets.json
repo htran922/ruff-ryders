@@ -1,0 +1,49 @@
+{
+  "adoptablePets": [
+    {
+      "name": "Cappy",
+      "img_url": "https://source.unsplash.com/OzAeZPNsLXk/640x883",
+      "age": "10",
+      "vaccination_status": false,
+      "adoption_story": "One eye cat from the woods of Kentucky.",
+      "available_for_adoption": true,
+      "type": "cat"
+    },
+    {
+      "name": "Barlow",
+      "img_url": "https://source.unsplash.com/7GX5aICb5i4/640x960",
+      "age": "5",
+      "vaccination_status": false,
+      "adoption_story": "Just a kitty from Tennessee.",
+      "available_for_adoption": true,
+      "type": "cat"
+    },
+    {
+      "name": "Scully",
+      "img_url": "https://source.unsplash.com/G8cB8hY3yvU/640x853",
+      "age": "1",
+      "vaccination_status": false,
+      "adoption_story": "Mr Basil Waygu Toots-a-lot!",
+      "available_for_adoption": true,
+      "type": "dog"
+    },
+    {
+      "name": "Fennic",
+      "img_url": "https://source.unsplash.com/mEdKuPYJe1I/640x936",
+      "age": "4",
+      "vaccination_status": false,
+      "adoption_story": "Swift swift swift.",
+      "available_for_adoption": true,
+      "type": "fox"
+    },
+    {
+      "name": "Corsac",
+      "img_url": "https://source.unsplash.com/PrkBKS0BcwE/640x960",
+      "age": "2",
+      "vaccination_status": false,
+      "adoption_story": "Quick like a fox.",
+      "available_for_adoption": true,
+      "type": "fox"
+    }
+  ]
+}
