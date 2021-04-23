@@ -6,10 +6,10 @@ const AdoptablePetTypeShow = props => {
   const [showAdoptionForm, setShowAdoptionForm] = useState(false)
   const [successMessage, setSuccessMessage] = useState(null)
 
-  const { id } = props.match.params
+  const { type, id } = props.match.params
   const getAdoptablePet = async () => {
     try {
-      const response = await fetch(`/api/v1/adoptable-pets/${id}`)
+      const response = await fetch(`/api/v1/adoptable-pets/${type}/${id}`)
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
