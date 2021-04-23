@@ -49,7 +49,7 @@ class AdoptablePet {
 
   static async getAvailablePets(petType) {
     try {
-      const petsByType = await this.findById(petType)
+      const petsByType = await this.findByType(petType)
 
       const availablePets = petsByType.map(pet => {
         if(pet.availableForAdoption){
@@ -60,11 +60,12 @@ class AdoptablePet {
       const finalResults =[]
       for (let index = 0; index < availablePets.length; index++) {
         const pet = availablePets[index];
-        if(await pet.getSurrenderApplication()){
+        if(await pet.getSurrenderApplication(pet.id)){
           finalResults.push(pet) 
         }
       }
-      return finalResults
+      console.log(finalResults)
+      return Promise.all(finalResults)
     }catch (error) {
       console.error("MODEL ERROR")
       console.error(error)
@@ -85,20 +86,17 @@ class AdoptablePet {
     }
   }
 
-  async getSurrenderApplication(){
+  async getSurrenderApplication(id){
     try {
       const surrenderApp = await import('./SurrenderApplication.js') 
       const SurrenderApplication = surrenderApp.default
 
-      const relatedPetDataQuery = "Select * FROM surrender_applications WHERE adoptable_pet_id = $1;"
+      const relatedPetDataQuery = "Select * FROM surrender_applications WHERE adoptable_pet_id = $1 AND status = 'approved';"
 
-      const resultsData = await pool.query(relatedPetDataQuery, [this.id])
-      const result = resultsData.map(result => new SurrenderApplication(result))
+      const resultsData = await pool.query(relatedPetDataQuery, [id])
 
-      if(resultsData.status === 'approved'){
+      if(resultsData){
         return true
-      } else {
-        return false
       }
     } catch (error) {
       console.error("MODEL ERROR")
